@@ -4,7 +4,8 @@ import re
 from urllib.parse import parse_qs, urlparse
 
 def sr():
-    start_reqs()
+    #start_reqs()
+	print("")
 
 def start_reqs():
 	print("")
@@ -85,7 +86,7 @@ async def buildEmbed(msg, url, tweet = ''):
 
 	await bot.get_channel(cfg[str(msg.guild.id)]['bot']['archive_channel']).send(embed=embed)
 
-bot = commands.Bot(command_prefix='<>')
+bot = commands.Bot(command_prefix='!?')
 
 @bot.event
 async def on_ready():
@@ -179,7 +180,7 @@ async def on_raw_reaction_add(payload):
 def is_owner(ctx):
 	print(ctx.message.author.id)
 	print(cfg["owner"])
-	if ctx.message.author.id == cfg["owner"]:
+	if str(ctx.message.author.id) == cfg["owner"]:
 		return True
 	else:
 		return False
